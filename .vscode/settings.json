@@ -1,0 +1,9 @@
+{
+    "java.project.sourcePaths": [
+        "projeto-aprendizagem-gamificada/src"
+    ],
+    "java.project.outputPath": "projeto-aprendizagem-gamificada/bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
