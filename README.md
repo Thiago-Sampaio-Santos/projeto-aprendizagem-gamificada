@@ -36,6 +36,7 @@ projeto-aprendizagem-gamificada/
 │ │ ├── Usuario.java
 │ │ ├── Aluno.java
 │ │ ├── Professor.java
+│ │ ├── RepositorioUsuarios.java
 │ │ ├── Visitante.java
 │ │ ├── PerfilFactory.java
 │ │ └── SessaoUsuarioSingleton.java
@@ -43,20 +44,28 @@ projeto-aprendizagem-gamificada/
 │ ├── desafios/
 │ │ ├── Desafio.java
 │ │ ├── Quiz.java
+│ │ ├── EmailObserver.java
 │ │ ├── ExercicioCodigo.java
+│ │ ├── GamificacaoObserver.java
+│ │ ├── LogObserver.java
 │ │ ├── PontuacaoStrategy.java
 │ │ ├── PontuacaoPorTempo.java
 │ │ ├── PontuacaoPorDificuldade.java
 │ │ ├── PontuacaoPorAcerto.java
+│ │ ├── PontuacaoCompostaStrategy.java
 │ │ ├── Observador.java
 │ │ ├── Sujeito.java
 │ │ └── NotificacaoObserver.java
 │ │
 │ ├── gamificacao/
 │ │ ├── Conquista.java
+│ │ ├── ConquistaPorCategoria.java
+│ │ ├── ConquistaTemporaria.java
 │ │ ├── Medalha.java
+│ │ ├── Trofeu.java
 │ │ ├── ConjuntoMedalhasComposite.java
 │ │ ├── BonusDecorator.java
+│ │ ├── BonusMultiploDecorator.java
 │ │ ├── StreakBonus.java
 │ │ └── DoubleXPBonus.java
 │ │
@@ -67,6 +76,7 @@ projeto-aprendizagem-gamificada/
 │ │ ├── RelatorioCSV.java
 │ │ ├── RelatorioJSON.java
 │ │ ├── RankingAdapter.java
+│ │ ├── RankingServico.java
 │ │ └── ServicoRankingExterno.java
 │ │
 │ ├── historico/
@@ -125,3 +135,33 @@ Para executar o projeto:
 ```bash
 javac src/app/Main.java
 java src/app/Main
+```
+
+--- 
+
+## Comandos para gerar relatórios
+
+Para gerar relatórios em PDF usando a biblioteca Apache PDFBox, execute os comandos abaixo a partir da pasta **projeto-aprendizagem-gamificada:**
+
+- Windows
+```bash
+java -cp "bin;..\lib\pdfbox-app-2.0.34.jar" app.App
+```
+- Linux/macOS:
+```bash
+java -cp "bin:../lib/pdfbox-app-2.0.34.jar" app.App
+```
+**Observação:** A geração do relatório também pode ser feita diretamente pela classe App, que já contém os dados simulados e chama o método responsável por criar o arquivo PDF.
+
+--- 
+
+## Para visualizar os Relatórios em formato PDF no VS Code
+Para visualizar o relatório gerado (**relatorio-final.pdf**) diretamente no Visual Studio Code, recomenda-se instalar a extensão **vscode-pdf**.
+
+# Como instalar:
+- Abra o VS Code.
+- Vá até a aba Extensões (ícone de quadrado com quatro blocos ou **Ctrl+Shift+X**).
+- Pesquise por: **vscode-pdf**
+-Instale a extensão desenvolvida por **tomoki1207.**
+
+Após instalada, basta clicar duas vezes no arquivo **.pdf** gerado para visualizá-lo dentro do editor.
