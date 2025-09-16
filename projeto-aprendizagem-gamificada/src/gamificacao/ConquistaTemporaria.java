@@ -28,7 +28,7 @@ public class ConquistaTemporaria extends Conquista {
 
     @Override
     public String exibir() {
-        return "⏳ Conquista Temporária: " + nome + " (" + descricao + ") até " + validade;
+        return " Conquista Temporária: " + nome + " (" + descricao + ") até " + validade;
     }
 
     @Override

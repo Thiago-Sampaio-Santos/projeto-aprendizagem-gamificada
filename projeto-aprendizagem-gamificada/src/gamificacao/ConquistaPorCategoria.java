@@ -22,7 +22,7 @@ public class ConquistaPorCategoria extends Conquista {
 
     @Override
     public String exibir() {
-        StringBuilder sb = new StringBuilder("📚 Categoria: " + nome + "\n");
+        StringBuilder sb = new StringBuilder(" Categoria: " + nome + "\n");
         for (Conquista c : conquistas) {
             sb.append("   -> ").append(c.exibir()).append("\n");
         }

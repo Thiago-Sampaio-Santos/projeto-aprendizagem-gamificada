@@ -13,7 +13,7 @@ public class DoubleXPBonus extends BonusDecorator {
 
     @Override
     public String exibir() {
-        return conquistaDecorada.exibir() + " ✨ [Double XP]";
+        return conquistaDecorada.exibir() + "  [Double XP]";
     }
 
     @Override

@@ -15,7 +15,7 @@ public class Trofeu extends Conquista {
 
     @Override
     public String exibir() {
-        return "🏆 Troféu: " + nome + " (" + descricao + ") valor=" + valor;
+        return " Troféu: " + nome + " (" + descricao + ") valor=" + valor;
     }
 
     @Override

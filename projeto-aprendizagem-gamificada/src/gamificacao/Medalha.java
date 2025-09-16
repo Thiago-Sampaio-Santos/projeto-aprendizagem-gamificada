@@ -15,7 +15,7 @@ public class Medalha extends Conquista {
 
     @Override
     public String exibir() {
-        return "🏅 Medalha: " + nome + " (" + descricao + ") valor=" + valor;
+        return " Medalha: " + nome + " (" + descricao + ") valor=" + valor;
     }
 
     @Override

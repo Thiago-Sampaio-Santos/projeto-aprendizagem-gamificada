@@ -17,7 +17,7 @@ public class StreakBonus extends BonusDecorator {
 
     @Override
     public String exibir() {
-        return conquistaDecorada.exibir() + " 🎯 [Streak +" + (streakDias * 5) + "]";
+        return conquistaDecorada.exibir() + "  [Streak +" + (streakDias * 5) + "]";
     }
 
     @Override
