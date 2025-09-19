@@ -15,7 +15,12 @@ public class LogObserver implements Observador {
     @Override
     public void atualizar(String mensagem, TipoEvento tipo) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(arquivo, true))) {
-            writer.write("[" + tipo + "] " + mensagem + System.lineSeparator());
+            String logEntry = String.format(
+                "[%s] %s%n",
+                tipo.name(),
+                mensagem
+            );
+            writer.write(logEntry);
         } catch (IOException e) {
             e.printStackTrace();
         }

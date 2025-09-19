@@ -1,0 +1,148 @@
+@startuml
+' Layout otimizado para ser mais retangular
+skinparam packageStyle rectangle
+
+' === Pacotes Centrais ===
+package "usuarios" {
+    abstract class Usuario {
+        +id
+        +nome
+        +email
+        +getRole()
+        +temPermissao()
+    }
+    class Aluno
+    class Professor
+    class Visitante
+    Usuario <|-- Aluno
+    Usuario <|-- Professor
+    Usuario <|-- Visitante
+}
+
+package "app" {
+    class SessaoUsuarioSingleton {
+        -instancia
+        +getInstance()
+        +login(usuario)
+    }
+    class PerfilFactory {
+        +criarPerfil()
+    }
+}
+
+package "util" {
+    class Log {
+        +info()
+        +warn()
+        +error()
+    }
+}
+
+' === Padrões Comportamentais ===
+package "desafios" {
+    interface PontuacaoStrategy {
+        +calcularPontuacao()
+    }
+    class PontuacaoPorAcerto implements PontuacaoStrategy
+    class PontuacaoPorDificuldade implements PontuacaoStrategy
+    class PontuacaoPorTempo implements PontuacaoStrategy
+    class PontuacaoCompostaStrategy implements PontuacaoStrategy
+
+    abstract class Sujeito {
+        -observadores
+        +adicionarObservador()
+        +notificarObservadores()
+    }
+    interface Observador {
+        +atualizar()
+    }
+    class GamificacaoObserver implements Observador
+    class LogObserver implements Observador
+    class NotificacaoObserver implements Observador
+    
+    abstract class Desafio extends Sujeito {
+        -pontuacaoStrategy
+        +resolver()
+    }
+    class Quiz extends Desafio
+    class ExercicioCodigo extends Desafio
+
+    Desafio "1" o-- "1" PontuacaoStrategy : usa >
+    Sujeito "1" *-- "n" Observador : notifica >
+}
+
+package "historico" {
+    class HistoricoInteracoes {
+        -instancia
+        -historicoAcoes
+        +getInstance()
+        +executarAcao()
+        +desfazerUltimaAcao()
+    }
+    interface Acao {
+        +executar()
+        +desfazer()
+    }
+    class ResponderQuizCommand implements Acao
+    class DesbloquearMedalhaCommand implements Acao
+}
+
+' === Padrões Estruturais ===
+package "gamificacao" {
+    interface Conquista {
+        +getValor()
+        +exibir()
+    }
+    class Medalha implements Conquista
+    class Trofeu implements Conquista
+    class ConjuntoMedalhasComposite implements Conquista {
+        -conquistas
+        +adicionar()
+    }
+    abstract class BonusDecorator implements Conquista {
+        -conquistaDecorada
+    }
+    class DoubleXPBonus extends BonusDecorator
+    class StreakBonus extends BonusDecorator
+
+    Conquista <|-- ConjuntoMedalhasComposite
+    Conquista <|-- BonusDecorator
+    ConjuntoMedalhasComposite "1" o-- "n" Conquista : contém >
+    BonusDecorator "1" o-- "1" Conquista : decora >
+}
+
+package "relatorios" {
+    class RelatorioFacade {
+        -relatorioPDF
+        -relatorioCSV
+        -relatorioJSON
+        -rankingAdapter
+        +gerarPDF()
+        +obterRankingGlobal()
+    }
+    interface Relatorio {
+        +gerar()
+    }
+    class RelatorioPDF implements Relatorio
+    class RelatorioCSV implements Relatorio
+    class RelatorioJSON implements Relatorio
+    interface RankingServico {
+        +obterRanking()
+    }
+    class RankingAdapter implements RankingServico
+    class ServicoRankingExterno implements RankingServico
+}
+
+' === Conexões entre Pacotes (o que faltava) ===
+SessaoUsuarioSingleton "1" --> "1" Usuario : gerencia >
+PerfilFactory ..> Usuario : cria
+GamificacaoObserver --> Aluno : atualiza pontos >
+Desafio --> Aluno : adiciona pontos >
+GamificacaoObserver --> Conquista : desbloqueia >
+HistoricoInteracoes "1" o-- "n" Acao
+ResponderQuizCommand --> Quiz : gerencia >
+DesbloquearMedalhaCommand --> Conquista : gerencia >
+RelatorioFacade "1" o-- "1" RankingAdapter
+RankingAdapter "1" o-- "1" ServicoRankingExterno : adapta >
+RelatorioFacade "1" o-- "1" Relatorio
+@enduml

@@ -1,0 +1,4 @@
+# Ignora arquivos compilados e temporários
+*.class
+/bin/
+*.jar

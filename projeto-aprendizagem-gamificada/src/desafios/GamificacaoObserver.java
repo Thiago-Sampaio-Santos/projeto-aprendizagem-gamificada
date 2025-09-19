@@ -24,7 +24,7 @@ public class GamificacaoObserver implements Observador {
                 String nome = "Streak de " + streak + " dias";
                 String descricao = "Bônus por manter streak de " + streak + " dias";
                 String categoria = "Streak";
-                int valor = 20 + streak * 5; // ajuste a regra se quiser
+                int valor = 20 + streak * 5; // Podemos ajustar a regra se quisermos
 
                 Medalha novaMedalha = new Medalha(id, nome, descricao, categoria, valor);
 

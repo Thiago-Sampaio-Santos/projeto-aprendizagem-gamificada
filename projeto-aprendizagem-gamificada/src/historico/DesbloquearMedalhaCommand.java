@@ -39,7 +39,7 @@ public class DesbloquearMedalhaCommand implements Acao {
     @Override
     public void desfazer() {
         if (usuario instanceof Aluno aluno) {
-            aluno.getConquistas().removeIf(c -> c.getId().equals(medalha.getId()));
+            aluno.removerConquista(medalha);
         }
 
         HistoricoInteracoes.getInstance().registrar(

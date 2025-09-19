@@ -1,0 +1,12 @@
+[2025-09-18 21:34:51] [INFO]
+Usuário autenticado: ALUNO{id='u1', nome='Thiago', email='thiago@ifba.edu', status='ATIVO'}, pontos=0, nivel=1, streak=0, conquistas=[]
+
+[2025-09-18 21:34:51] [INFO]
+[Historico] [2025-09-18T21:34:51.168837200] Usuario=u1, Acao=Respondeu quiz 'Quiz de Padrões de Projeto' e ganhou 75 pontos.
+
+[2025-09-18 21:34:51] [INFO]
+[Historico] [2025-09-18T21:34:51.177185100] Usuario=u1, Acao=Desbloqueou medalha 'Primeiro Quiz'.
+
+[2025-09-18 21:34:51] [INFO]
+[Historico] [2025-09-18T21:34:51.602334500] Usuario=u1, Acao=DESFAZER: Medalha 'Primeiro Quiz' removida.
+

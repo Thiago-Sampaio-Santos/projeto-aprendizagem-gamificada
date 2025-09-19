@@ -27,6 +27,9 @@ A entrada principal do sistema é feita pela classe `App.java`, que inicializa a
 ```plaintext
 projeto-aprendizagem-gamificada/
 │
+├── docs/
+│ └── diagramas/
+│
 ├── src/
 │ ├── app/
 │ │ ├── App.java
@@ -89,14 +92,9 @@ projeto-aprendizagem-gamificada/
 │ └── util/
 │ └── Log.java
 │
-├── docs/
-│ ├── diagramas/
-│ │ ├── diagrama-classes.puml
-│ │ └── diagrama-sequencia.puml
-│ └── relatorio-tecnico.pdf
-│
 ├── README.md
-└── .gitignore
+├── .gitignore
+└── logs/
 ```
 
 ---

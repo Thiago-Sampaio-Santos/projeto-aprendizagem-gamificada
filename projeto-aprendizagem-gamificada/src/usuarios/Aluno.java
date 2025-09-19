@@ -55,6 +55,10 @@ public class Aluno extends Usuario {
         }
     }
 
+    public void removerConquista(Conquista conquista) {
+        conquistas.removeIf(c -> c.getId().equals(conquista.getId()));
+    }
+    
     public void incrementarStreak() { streakAtual++; }
     public void resetarStreak() { streakAtual = 0; }
 

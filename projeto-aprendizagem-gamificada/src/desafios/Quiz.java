@@ -32,7 +32,7 @@ public class Quiz extends Desafio {
 
     @Override
     public String toRelatorio() {
-        return String.format("Quiz[%s]: %s | Tentativas=%d | Melhor Pontuação=%d",
+        return String.format("Quiz [%s]: %s | Tentativas = %d | Melhor Pontuação = %d",
                 id, titulo, tentativas, pontuacaoMaxima);
     }
 }

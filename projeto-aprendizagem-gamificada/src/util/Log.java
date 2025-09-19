@@ -13,7 +13,7 @@ import java.time.format.DateTimeFormatter;
  */
 public final class Log {
     private static boolean logEmArquivo = false;
-    private static String caminhoArquivo = "projeto-aprendizagem-gamificada/logs/logs.txt";
+    private static String caminhoArquivo = "logs/logs.txt";
     private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     private Log() { }
@@ -43,7 +43,7 @@ public final class Log {
     }
 
     private static void registrar(String nivel, String mensagem) {
-        String linha = String.format("[%s] [%s] %s",
+        String linha = String.format("[%s] [%s]%n%s",
                 LocalDateTime.now().format(FORMATTER), nivel, mensagem);
 
         // Console
@@ -53,6 +53,7 @@ public final class Log {
         if (logEmArquivo) {
             try (PrintWriter writer = new PrintWriter(new FileWriter(caminhoArquivo, true))) {
                 writer.println(linha);
+                writer.println();
             } catch (IOException e) {
                 System.err.println("Falha ao escrever no log: " + e.getMessage());
             }

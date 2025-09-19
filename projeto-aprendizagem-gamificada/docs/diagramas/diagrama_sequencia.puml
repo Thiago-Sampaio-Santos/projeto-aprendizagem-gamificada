@@ -1,0 +1,42 @@
+@startuml
+actor Aluno
+participant ":App" as App
+participant ":Quiz" as Quiz
+participant ":PontuacaoStrategy" as Estrategia
+participant ":GamificacaoObserver" as Gamificacao
+participant ":HistoricoInteracoes" as Historico
+
+activate Aluno
+Aluno -> App: respondeDesafio(quiz)
+activate App
+App -> Quiz: resolver()
+activate Quiz
+Quiz -> Estrategia: calcularPontuacao()
+activate Estrategia
+return pontos
+Quiz -> Aluno: adicionarPontos(pontos)
+activate Aluno
+deactivate Aluno
+Quiz -> Quiz: notificarObservadores()
+loop para cada observador
+    Quiz -> Gamificacao: atualizar()
+    activate Gamificacao
+    Gamificacao -> Aluno: ganharConquista(conquista)
+    activate Aluno
+    deactivate Aluno
+    return
+end
+deactivate Quiz
+App -> Historico: executarAcao(comando)
+activate Historico
+create ":ResponderQuizCommand" as Comando
+App -> Comando: <<cria>>
+Comando -> Historico: executar()
+activate Comando
+return
+deactivate Comando
+return
+deactivate Historico
+return
+deactivate App
+@enduml
