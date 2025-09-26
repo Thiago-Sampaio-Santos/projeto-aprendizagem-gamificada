@@ -12,7 +12,7 @@ import java.util.List;
 public class App {
     public static void main(String[] args) throws Exception {
         // === CONFIGURAÇÃO INICIAL ===
-        Log.configurarLogArquivo("logs/logs.txt");
+        Log.configurarLogArquivo("projeto-aprendizagem-gamificada/logs/logs.txt");
         System.out.println("=== Plataforma de Aprendizagem Gamificada ===\n");
 
         // Criar aluno via Factory
@@ -41,7 +41,7 @@ public class App {
         quiz.adicionarObservador(new NotificacaoObserver("Console"));
         quiz.adicionarObservador(new EmailObserver("suporte@ifba.edu"));
         quiz.adicionarObservador(new GamificacaoObserver((Aluno) aluno));
-        quiz.adicionarObservador(new LogObserver("logs/logs-desafios.txt"));
+        quiz.adicionarObservador(new LogObserver("projeto-aprendizagem-gamificada/logs/logs-desafios.txt"));
 
         // === EXECUTAR AÇÃO (Command) ===
         HistoricoInteracoes historico = HistoricoInteracoes.getInstance();

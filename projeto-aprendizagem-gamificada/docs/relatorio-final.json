@@ -1,6 +1,6 @@
 {
   "relatorio": [
-    { "indice": 1, "conteudo": "[2025-09-18T21:34:51.168837200] Usuario=u1, Acao=Respondeu quiz 'Quiz de Padrões de Projeto' e ganhou 75 pontos." },
-    { "indice": 2, "conteudo": "[2025-09-18T21:34:51.177185100] Usuario=u1, Acao=Desbloqueou medalha 'Primeiro Quiz'." }
+    { "indice": 1, "conteudo": "[2025-09-26T12:42:23.655857700] Usuario=u1, Acao=Respondeu quiz 'Quiz de Padrões de Projeto' e ganhou 75 pontos." },
+    { "indice": 2, "conteudo": "[2025-09-26T12:42:23.668725] Usuario=u1, Acao=Desbloqueou medalha 'Primeiro Quiz'." }
   ]
 }
